@@ -5,8 +5,8 @@ from django.utils import timezone
 from django.urls import reverse
 
 from .models import Question
-
 # Create your tests here.
+
 
 class QuestionModelTests(TestCase):
 
@@ -38,6 +38,7 @@ class QuestionModelTests(TestCase):
         recent_question=Question(pub_date=time)
 
         self.assertIs(recent_question.was_published_recently(),True) 
+
 
 def create_question(question_text,days):
     """
@@ -92,6 +93,7 @@ class QuestionIndexViewTests(TestCase):
         response=self.client.get(reverse('polls:index'))
 
         self.assertQuerysetEqual(response.context['latest_question_list'],[question2,question1])
+
 
 class QuestionDetailViewTests(TestCase):
 
